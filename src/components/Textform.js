@@ -66,27 +66,29 @@ export default function Textform(props) {
     <>
     {/* style={{color:props.mode==='dark'?"white":"black"}} */}
      <div className='container' style={{color:props.mode==='dark'?"white":"black"}} >
-        <h1 style={{color:props.mode==='dark'?"white":"black"}}>{props.heading} </h1>
+        <h1 className='mb-2' style={{color:props.mode==='dark'?"white":"black"}}>{props.heading} </h1>
        <div className="mb-3">
         {/* <label For="myBox" class="form-label">Example textarea</label> */}
-        <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white',color:props.mode==='dark'?"white":"black"}} rows="8"></textarea>
+        <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} style={props.style} rows="8"></textarea>
        </div>
-       <button className={`btn btn-${props.btnColor} mx-1`} onClick={handleLoClick}>Convert to lowercase</button>
-       <button className={`btn btn-${props.btnColor} mx-1`} onClick={handleUpClick}>Convert to uppercase</button>
-       <button className={`btn btn-${props.btnColor} mx-1`} onClick={handleReverseClick}>reverse the text</button>
-       <button className={`btn btn-${props.btnColor} mx-1`} onClick={speak} id="oogle">listen the text</button>
-       <button className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={handleCopy}>copy the text</button>
-       <button className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={handleSpaces}>remove extra spaces</button>
-       <button className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={clearText}>clear the text</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleLoClick}>Convert to lowercase</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleUpClick}>Convert to uppercase</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={handleReverseClick}>reverse the text</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} mx-1 my-1`} onClick={speak} id="oogle">listen the text</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={handleCopy}>copy the text</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={handleSpaces}>remove extra spaces</button>
+       <button disabled={text.length===0} className={`btn btn-${props.btnColor} my-1 mx-1`} onClick={clearText}>clear the text</button>
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?"white":"black"}}>
         <h1>your text summery</h1>
-        <p>{text.split(" ").length-1} words and {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} minutes read</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} minutes read</p>
         <h2>preview</h2>
-        <p>{text.length>0?text:"Enter something in the text box to preview here"}</p>
+        <p>{text.length>0?text:"Nothing to preview!"}</p>
     </div>
     </>
   )
 }
+// 
 
+// {backgroundColor:props.mode==='dark'?'#8eb3d6':'white',color:props.mode==='dark'?"white":"black"}

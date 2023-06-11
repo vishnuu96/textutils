@@ -18,7 +18,14 @@ function App() {
   const [textforRose,settextforRose] = useState("enable rose dark mode")
     // for button styling
   const [btnColor, setbtnColor] = useState("primary")
-
+  const [myStyle, setmyStyle] = useState({
+        color:'black',
+        backgroundColor:'white'
+    })
+    const [textStyle,settextStyle] = useState({
+      color:"black",
+      backgroundColor:'white'
+    })
   const [alert,setalert] = useState(null)
 
   const showAlert=(message,type)=>{
@@ -46,6 +53,16 @@ function App() {
       // setInterval(() => {
       //   document.title=" install TextUtils"
       // }, 1500);
+      setmyStyle({
+        // color:mode==='light'?"white":'black',
+        // backgroundColor:mode==='light'?'rgb(36 74 104)':'white'
+        color:'white',
+        backgroundColor:'rgb(36 74 104)'
+      })
+      settextStyle({
+        backgroundColor:'rgb(71 115 155)',
+        color:"white"
+      })
     }
     else{
       setMode("light")
@@ -54,6 +71,14 @@ function App() {
       showAlert("light mode has been enabled","success")
       setbtnColor("primary")
       // document.title="TextUtils - light mode"
+      setmyStyle({
+        color:'black',
+        backgroundColor:'white'
+      })
+      settextStyle({
+        color:"black",
+        backgroundColor:'white'
+      })
     }
   }
 
@@ -64,6 +89,16 @@ function App() {
       document.body.style.backgroundColor="#274f16"
       showAlert("green mode has been enabled","success")
       setbtnColor("success")
+      setmyStyle({
+        color:'white',
+        backgroundColor: 'rgb(14 49 14)'
+        
+      })
+      settextStyle({
+        color:'white',
+        backgroundColor:"rgb(63 129 87) "
+       
+      })
     }
     // else{
     //   setMode("light")
@@ -77,10 +112,26 @@ function App() {
     if(mode==="light"||mode==="dark"){
       setMode("dark")
       settextforRose(" rose dark mode")
-      document.body.style.backgroundColor="#8d280f"
+      document.body.style.backgroundColor="#6a1f44"
       showAlert("rose mode has been enabled","success")
       setbtnColor("danger") 
+      setmyStyle({
+        color:'white',
+        backgroundColor: 'rgb(100 38 107)'
+       
+      })
+      
+      settextStyle({
+        color:'white',
+        backgroundColor:"rgb(136 63 117)"
+      })
     }
+  }
+  
+  const toggle={
+    blue:toggleMode,
+    green:toggleModeGreen,
+    rose:toggleModeRose
   }
 
   return (
@@ -92,29 +143,31 @@ function App() {
     //  to write and update default dark button text
      text={textMode}
       //  function to be called when clicked on default dark mode
-      toggleMode={toggleMode} 
+      // toggleMode={toggleMode}
+      toggleBlue={toggle.blue}
     //  this is to write and update the text for green button
      textforGreen={textforgreen} 
     //  function to be called when clicked on green mode button 
-     toggleModeGreen={toggleModeGreen}
+    //  toggleModeGreen={toggleModeGreen}
+    toggleGreen={toggle.green}
     //  to wrte and update the text for rose button
     textforRose={textforRose}
     // function to call when clicked on rose mode button
-    toggleModeRose={toggleModeRose}
+    // toggleModeRose={toggleModeRose}
+    toggleRose={toggle.rose}
       aboutText="About TextUtils" />
      {/* <Navbar  /> */}
      <Alert  alert={alert}/>
      <div className="container my-3">
       <Routes>
-        <Route exact path="/About" element={<About/>}/>
+        <Route exact path="/About" element={<About mode={mode} style={myStyle}/>}/>
       </Routes>
       <Routes>
-        <Route exact path="/" element={<Textform heading="Enter the text to analyze"  btnColor={btnColor} showalert={showAlert} mode={mode}/>}/>
+        <Route exact path="/" element={<Textform heading="Try TextUtils - Word Counter,Character Counter, Remove extra spaces" style={textStyle} btnColor={btnColor} showalert={showAlert} mode={mode}/>}/>
       </Routes>
       
      {/* <Textform heading="Enter the text to analyze"  btnColor={btnColor} showalert={showAlert} mode={mode}/> */}
      
-
      </div>
      </BrowserRouter>
     </>
