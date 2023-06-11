@@ -14,8 +14,8 @@ import { BrowserRouter,Route,Routes } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light")
   const [textMode,settextMode] = useState("Enable dark mode")
-  const [textforgreen,settextforgreen] = useState("enable green dark mode")
-  const [textforRose,settextforRose] = useState("enable rose dark mode")
+  // const [textforgreen,settextforgreen] = useState("enable green dark mode")
+  // const [textforRose,settextforRose] = useState("enable rose dark mode")
     // for button styling
   const [btnColor, setbtnColor] = useState("primary")
   const [myStyle, setmyStyle] = useState({
@@ -46,16 +46,7 @@ function App() {
       document.body.style.backgroundColor="#042743"
       showAlert("dark mode has been enabled","success")
       setbtnColor("primary")
-      // document.title="TextUtils - Dark mode"
-      // setInterval(() => {
-      //   document.title="TextUtils is amazing now"
-      // }, 2000);
-      // setInterval(() => {
-      //   document.title=" install TextUtils"
-      // }, 1500);
       setmyStyle({
-        // color:mode==='light'?"white":'black',
-        // backgroundColor:mode==='light'?'rgb(36 74 104)':'white'
         color:'white',
         backgroundColor:'rgb(36 74 104)'
       })
@@ -70,7 +61,6 @@ function App() {
       document.body.style.backgroundColor="white"
       showAlert("light mode has been enabled","success")
       setbtnColor("primary")
-      // document.title="TextUtils - light mode"
       setmyStyle({
         color:'black',
         backgroundColor:'white'
@@ -82,57 +72,50 @@ function App() {
     }
   }
 
-  const toggleModeGreen=()=>{
-    if(mode==="light"||mode==="dark"){
-      setMode("dark")
-      settextforgreen(" green dark mode")
-      document.body.style.backgroundColor="#274f16"
-      showAlert("green mode has been enabled","success")
-      setbtnColor("success")
-      setmyStyle({
-        color:'white',
-        backgroundColor: 'rgb(14 49 14)'
+  // const toggleModeGreen=()=>{
+  //   if(mode==="light"||mode==="dark"){
+  //     setMode("dark")
+  //     settextforgreen(" green dark mode")
+  //     document.body.style.backgroundColor="#274f16"
+  //     showAlert("green mode has been enabled","success")
+  //     setbtnColor("success")
+  //     setmyStyle({
+  //       color:'white',
+  //       backgroundColor: 'rgb(14 49 14)'
         
-      })
-      settextStyle({
-        color:'white',
-        backgroundColor:"rgb(63 129 87) "
+  //     })
+  //     settextStyle({
+  //       color:'white',
+  //       backgroundColor:"rgb(63 129 87) "
        
-      })
-    }
-    // else{
-    //   setMode("light")
-    //   settextforgreen("Enable green mode")
-    //   document.body.style.backgroundColor="white"
-    //   showAlert("light mode has been enabled","success")
-    // }
-    
-  }
-  const toggleModeRose=()=>{
-    if(mode==="light"||mode==="dark"){
-      setMode("dark")
-      settextforRose(" rose dark mode")
-      document.body.style.backgroundColor="#6a1f44"
-      showAlert("rose mode has been enabled","success")
-      setbtnColor("danger") 
-      setmyStyle({
-        color:'white',
-        backgroundColor: 'rgb(100 38 107)'
+  //     })
+  //   }
+  // }
+  // const toggleModeRose=()=>{
+  //   if(mode==="light"||mode==="dark"){
+  //     setMode("dark")
+  //     settextforRose(" rose dark mode")
+  //     document.body.style.backgroundColor="#6a1f44"
+  //     showAlert("rose mode has been enabled","success")
+  //     setbtnColor("danger") 
+  //     setmyStyle({
+  //       color:'white',
+  //       backgroundColor: 'rgb(100 38 107)'
        
-      })
+  //     })
       
-      settextStyle({
-        color:'white',
-        backgroundColor:"rgb(136 63 117)"
-      })
-    }
-  }
+  //     settextStyle({
+  //       color:'white',
+  //       backgroundColor:"rgb(136 63 117)"
+  //     })
+  //   }
+  // }
   
-  const toggle={
-    blue:toggleMode,
-    green:toggleModeGreen,
-    rose:toggleModeRose
-  }
+  // const toggle={
+  //   blue:toggleMode,
+  //   green:toggleModeGreen,
+  //   rose:toggleModeRose
+  // }
 
   return (
     <>
@@ -143,18 +126,18 @@ function App() {
     //  to write and update default dark button text
      text={textMode}
       //  function to be called when clicked on default dark mode
-      // toggleMode={toggleMode}
-      toggleBlue={toggle.blue}
+      toggleMode={toggleMode}
+      // toggleBlue={toggle.blue}
     //  this is to write and update the text for green button
-     textforGreen={textforgreen} 
+    //  textforGreen={textforgreen} 
     //  function to be called when clicked on green mode button 
     //  toggleModeGreen={toggleModeGreen}
-    toggleGreen={toggle.green}
+    // toggleGreen={toggle.green}
     //  to wrte and update the text for rose button
-    textforRose={textforRose}
+    // textforRose={textforRose}
     // function to call when clicked on rose mode button
     // toggleModeRose={toggleModeRose}
-    toggleRose={toggle.rose}
+    // toggleRose={toggle.rose}
       aboutText="About TextUtils" />
      {/* <Navbar  /> */}
      <Alert  alert={alert}/>

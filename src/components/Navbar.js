@@ -25,7 +25,7 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link " aria-current="page" to="/">
                 Home
               </Link>
             </li>
@@ -35,47 +35,9 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-          
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-            
-          </form> */}
           <div class={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
-            <input class="form-check-input" onClick={props.toggleBlue}type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+            <input class="form-check-input" onClick={props.toggleMode}type="checkbox" role="switch" id="flexSwitchCheckDefault" />
             <label class="form-check-label" for="flexSwitchCheckDefault">{props.text}</label>
-          </div>
-  
-          {/* <button className="mx-1" onClick={props.toggleBlue}>{props.text}</button> */}
-          {/* <div className="d-flex">
-            <div className="bg-primary rounded mx-2" onClick={props.toggleBlue} style={{height:'20px',width:'20px'}}></div>
-          </div> */}
-          {/* greenish dark mode */}
-
-          {/* <div class={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
-            <input class="form-check-input" onClick={props.toggleGreen}type="checkbox" role="switch" id="flexSwitchCheckChecked" checked/>
-            <label class="form-check-label" for="flexSwitchCheckChecked">{props.textforGreen}</label>
-          </div> */}
-          {/* <button class="mx-1" onClick={props.toggleGreen}>{props.textforGreen}</button> */}
-          <div className="d-flex">
-            <div className="bg-success rounded mx-2" onClick={props.toggleGreen} style={{height:'20px',width:'20px'}}></div>
-          </div>
-          {/* rose dark mode */}
-
-          {/* <div class={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
-            <input class="form-check-input" onClick={props.toggleRose}type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-            <label class="form-check-label" for="flexSwitchCheckDefault"> {props.textforRose}</label>
-          </div> */}
-          {/* <button class="mx-1" onClick={props.toggleRose}>{props.textforRose}</button> */}
-          <div className="d-flex">
-            <div className=" rounded mx-2" onClick={props.toggleRose} style={{height:'20px',width:'20px',backgroundColor:"#7b2851"}}></div>
           </div>
         </div>
       </div>
